@@ -1,0 +1,59 @@
+.section {
+  width: 900px;
+  height: 450px;
+  position: relative;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-template-rows: repeat(15, 1fr);
+  /* need to know number of row,col that needs to repeat */
+}
+
+div,
+header {
+  background: white;
+  border-right: solid;
+  border-top: solid;
+}
+
+.row-header {
+  position: sticky;
+  left: 0;
+  border-left: solid;
+}
+
+.mhd {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  background: grey;
+  height: 60px;
+}
+
+.row-room-header {
+  /* this means .row-room-header will create child grid inside */
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(6, 200px);
+  grid-template-rows: repeat(2, 1fr);
+
+  /* this means .row-room-header starting from column 1 - 7 of parent grid */
+  grid-column-start: 1;
+  grid-column-end: 7;
+  /* height: 200px; */
+  > div {
+    height: 60px;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  border-bottom: solid;
+}
+
+header:first-child {
+  left: 0;
+  z-index: 100;
+  border-bottom: solid;
+}
